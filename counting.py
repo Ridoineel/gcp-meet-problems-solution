@@ -8,12 +8,12 @@
 
 import sys
 
-# redirection du flux
-# d'entré vers le fichier inputs/input1.txt
+# redirection des flux d'entrées
+# vers le fichier inputs/input1.txt
 sys.stdin = open("inputs/input1.txt", "r")
 
 def main():
-	pass
+	text = input()
 
 if __name__ == '__main__':
 	main()

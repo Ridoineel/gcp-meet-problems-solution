@@ -8,8 +8,8 @@
 
 import sys
 
-# redirection du flux
-# d'entré vers le fichier inputs/input2.txt
+# redirection des flux d'entrées
+# vers le fichier inputs/input2.txt
 sys.stdin = open("inputs/input2.txt", "r")
 
 def main():

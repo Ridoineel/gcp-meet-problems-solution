@@ -10,12 +10,14 @@
 
 import sys
 
-# redirection du flux
-# d'entré vers le fichier inputs/input3.txt
+# redirection des flux d'entrées
+# vers le fichier inputs/input3.txt
 sys.stdin = open("inputs/input3.txt", "r")
 
 def main():
-	pass
+	n = int(input())
+	ai, aj = map(int, input().split())
+	bi, bj = map(int, input().split())
 
 if __name__ == '__main__':
 	main()
