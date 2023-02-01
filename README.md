@@ -1,2 +1,2 @@
 # Problems solution during 
-# my meet about google competitive programming
+# meet about google competitive programming
