@@ -14,26 +14,20 @@ import sys
 # vers le fichier inputs/input3.txt
 sys.stdin = open("inputs/input3.txt", "r")
 
-paths = 0
+cache = {}
 
-def explore(i, j, targetI, targetJ, n):
-	global paths
+def explore(i, j, targetI, targetJ):
 
-	# s'il point ne fait pas partie
-	# de la zone des chemins possible
-	if i < 0 or i > targetI or j < 0 or j > targetJ:
-		return
+	if (i, j) not in cache:
+		if i < 0 or i > targetI or j < 0 or j > targetJ:
+			return 0
 
-	# si on a atteint l'arrivé
-	# on incrémente le nombre de chemin
-	if i == targetI and j == targetJ:
-		paths += 1
+		if i == targetI and j == targetJ:
+			return 1
 
-	# le point en bas
-	explore(i + 1, j, targetI, targetJ, n)
-	# le point à droite
-	explore(i, j + 1, targetI, targetJ, n)
+		cache[i, j] = explore(i + 1, j, targetI, targetJ) + explore(i, j + 1, targetI, targetJ) + 
 
+	return cache[i, j]
 
 def main():
 	n = int(input())
@@ -47,12 +41,9 @@ def main():
 		print("IMPOSSIBLE")
 		exit()
 
-	# on explore la grille
-	# en commencant par A
-	# avec pour arrivé B
-	explore(ai, aj, bi, bj, n)
+	nbPaths = explore(ai, aj, bi, bj)
 
-	print(paths)
+	print(nbPaths)
 
 if __name__ == '__main__':
 	main()
